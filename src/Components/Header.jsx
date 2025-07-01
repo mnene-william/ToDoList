@@ -1,4 +1,4 @@
-// src/components/Header.js
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../Context/AuthContext';
@@ -7,19 +7,24 @@ const Header = () => {
   const { user, isLoggedIn, logout } = useAuth();
 
   return (
-    <header className="p-4 bg-blue-600 text-white flex justify-between">
-      <h1>What To Do?</h1>
-      <nav className="space-x-4">
+    <header className="p-4 bg-blue-800 text-white flex justify-between items-center shadow-md">
+
+      <nav className="space-x-6">
         {isLoggedIn ? (
           <>
-            <span>{user.email}</span>
-            <Link to="/dashboard">Dashboard</Link>
-            <button onClick={logout}>Logout</button>
+            <span className="text-lg">{user.email}</span>
+            <Link to="/dashboard" className="hover:text-blue-200 transition-colors duration-200">Dashboard</Link>
+            <button
+              onClick={logout}
+              className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded transition-colors duration-200"
+            >
+              Logout
+            </button>
           </>
         ) : (
           <>
-            <Link to="/login">Login</Link>
-            <Link to="/signup">Sign Up</Link>
+            <Link to="/login" className="hover:text-blue-200 transition-colors duration-200">Login</Link>
+            <Link to="/signup" className="hover:text-blue-200 transition-colors duration-200">Sign Up</Link>
           </>
         )}
       </nav>
