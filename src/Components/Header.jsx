@@ -13,7 +13,6 @@ const Header = () => {
         {isLoggedIn ? (
           <>
             <span className="text-lg">{user.email}</span>
-            <Link to="/dashboard" className="hover:text-blue-200 transition-colors duration-200">Dashboard</Link>
             <button
               onClick={logout}
               className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded transition-colors duration-200"
